@@ -23,7 +23,72 @@ class Enemy {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-
+class Player extends Enemy {
+	//set Player class propterties
+	constructor (x, y, speed) {
+		super (x, y, speed);
+		this.sprite = 'images/char-boy.png';
+		this.score = 0; // for tracking the score
+		this.lives = 3; // for tracking lives remaining
+		this.liveSprite = 'images/Heart.png';
+	}
+	// draw character, score, and number of lives on screen
+	render () {
+		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+		ctx.font  = '20pt sans-serif';
+		ctx.fillText(`Score:   ${this.score}`, 10, 40);
+		for (let i = 0; i < this.lives; i++) {
+			ctx.drawImage(Resources.get(this.liveSprite), i * 40 + 385, 5, 30, 45);
+		}
+	}
+	// handle keyboard inputs to move character
+	handleInput(keypress) {
+		switch (keypress) {
+		 	case 'left':
+				this.x -= 100;
+		          break
+			case 'right':
+				this.x += 100;
+				break;
+	          case 'down':
+				this.y += 90;
+				break;
+			case 'up':
+				this.y -= 90;
+				if (this.y === -45) {
+					this.score += 100;
+				}
+				break;
+		}
+	}
+	// prevent player from moving offscreen and
+	// move player back to start if they reach the end
+	update() {
+		if (this.y === -45) {
+		     setTimeout(function() {
+			    player.x = 202;
+			    player.y = 405;
+		    }, 500);
+	    }
+		if (this.x > 402) {
+			this.x = 402;
+		}
+		if (this.x < 2) {
+			this.x = 2;
+		}
+		if (this.y > 405) {
+			this.y = 405;
+		}
+		if (this.y < 0) {
+			this.y = -45;
+		}
+	}
+	// reset lives and score counter if the game ends
+	reset() {
+		this.lives = 3;
+		this.score = 0;
+	}
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
