@@ -93,8 +93,14 @@ class Player extends Enemy {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+let allEnemies = [];
+let enemyStart = [66, 147, 227, 307];
 
-
+// add enemies to allEnemies array to start the game
+enemyStart.forEach(function(y) {
+	let enemy = new Enemy(0, y, 1500);
+	allEnemies.push(enemy);
+});
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
