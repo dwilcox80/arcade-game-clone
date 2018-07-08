@@ -1,6 +1,27 @@
-frontend-nanodegree-arcade-game
+Classic Arcade Game Clone Project
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Instructions to Install
+===============
+- To play, you must download or clone the repository from this one
+- Open the index.html in your browser
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+In Game Instructions/Objective
+======================
+- The objective of the game is to move the hero character from the grass starting area
+to the water area without colliding into the enemy (bug sprites)
+- To move the hero character, the user must utilize the left, right, up, and down arrow
+keys
+- Successful maneuvering of the hero character to the water area increases the Score
+- Once a player collides with an enemy three times, the game ends
+- The user can click the 'Play Again' button to reset the game
+
+Dependencies
+==========
+This game requires images for both the player and the enemy.  The player sprite can be changed by
+altering the Player class 'sprite' property.  For convenience, alternative images for the player sprite
+can be found in the images directory.
+
+The game also utilizes 2D collision detection.  The code for this detection was adapted from
+documentation found on the Mozilla Developer Network.  The pathway to the documentation can
+be found in the comments on the engine.js file.
