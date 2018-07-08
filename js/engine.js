@@ -9,7 +9,7 @@
  * drawn but that is not the case. What's really happening is the entire "scene"
  * is being drawn over and over, presenting the illusion of animation.
  *
- * This engine makes the canvas' context (ctx) object globally available to make 
+ * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
 
@@ -79,7 +79,28 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+    }
+
+    // function to check for player/enemy collisions
+    // adapted from MDN 2D collision detection documenation
+    // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    function checkCollisions() {
+	    for (let i = 0; i < allEnemies.length; i++) {
+		    if (allEnemies[i].x < player.x + 80 && allEnemies[i].x > player.x - 80) {
+			    if (allEnemies[i].y < player.y +  40 && allEnemies[i].y  > player.y - 40) {
+				    enemySprite = allEnemies[i];
+				    player.x = 202;
+				    player.y = 405;
+				    player.lives --;
+				    player.score -= 100;
+				    enemySprite.sprite = 'images/explosion.png';
+				    setTimeout(function(allEnemies) {
+					    enemySprite.sprite ='images/enemy-bug.png';
+				    }, 100);
+			    }
+		    }
+	    }
     }
 
     /* This is called by the update function and loops through all of the
@@ -117,7 +138,7 @@ var Engine = (function(global) {
             numRows = 6,
             numCols = 5,
             row, col;
-        
+
         // Before drawing, clear existing canvas
         ctx.clearRect(0,0,canvas.width,canvas.height)
 
