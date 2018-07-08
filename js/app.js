@@ -95,6 +95,7 @@ class Player extends Enemy {
 // Place the player object in a variable called player
 let allEnemies = [];
 let enemyStart = [66, 147, 227, 307];
+let player = new Player(202.5, 405, 50);
 
 // add enemies to allEnemies array to start the game
 enemyStart.forEach(function(y) {
