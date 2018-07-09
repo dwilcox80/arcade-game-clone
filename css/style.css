@@ -21,7 +21,7 @@ body {
 	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-#game-over {
+.game-over {
 	width: 50%;
 	height: 200px;
 	border-radius: 10px;
@@ -30,8 +30,9 @@ body {
 	margin: 5% auto; /* 15% from the top and centered */
 }
 
-button {
+.game-over button {
 	width: 100px;
 	height: 50px;
 	border-radius: 10px;
+	cursor: pointer;
 }
