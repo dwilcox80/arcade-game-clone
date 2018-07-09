@@ -98,6 +98,9 @@ var Engine = (function(global) {
 					    enemySprite.sprite ='images/enemy-bug.png';
 				    }, 100);
 			    }
+			    if (player.lives < 0) {
+				    gameOver();
+			    }
 		    }
 	    }
     }
