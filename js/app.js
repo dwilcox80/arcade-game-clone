@@ -112,6 +112,13 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
+});
+
+// create eventListener to handle resetting game after Game Over
+let button = document.getElementById('reset');
+button.addEventListener('click', function(evt) {
+	let modal = document.querySelector('.modal');
+	modal.style.display = 'none';
+	player.reset();
 });
