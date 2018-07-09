@@ -5,6 +5,7 @@ Instructions to Install
 ===============
 - To play, you must download or clone the repository from this one
 - Open the index.html in your browser
+- Alternatively, you can run a live version here:  https://dwilcox80.github.io/arcade-game-clone/
 
 In Game Instructions/Objective
 ======================
