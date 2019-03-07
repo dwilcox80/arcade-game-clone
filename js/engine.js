@@ -92,7 +92,7 @@ var Engine = (function(global) {
 				    player.x = 202;
 				    player.y = 405;
 				    player.lives --;
-				    player.score -= 100;
+				    player.score -= 50;
 				    enemySprite.sprite = 'images/explosion.png';
 				    setTimeout(function(allEnemies) {
 					    enemySprite.sprite ='images/enemy-bug.png';
